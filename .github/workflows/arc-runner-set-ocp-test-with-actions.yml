@@ -1,0 +1,28 @@
+name: ARC Demo - OCP test with Actions
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: arc-runner-set-ocp
+    permissions:
+      contents: read # read the repository
+      packages: write # push to GHCR, omit if not pushing to GitHub's container registry
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+    
+      - name: Login to GHCR
+        uses: ./.github/actions/kaniko-login
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image
+        uses: ./.github/actions/kaniko-build-push
+        with:
+          context: "."
+          tag: "ghcr.io/ghsioux-octodemo/test-repo/kaniko-build-ocp-action:test"
