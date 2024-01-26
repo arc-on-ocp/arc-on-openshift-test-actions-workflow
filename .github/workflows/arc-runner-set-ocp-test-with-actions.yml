@@ -13,6 +13,12 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+
+      # test action to test fully rootless ARC runners on OCP
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '21'
     
       - name: Login to GHCR
         uses: ./.github/actions/kaniko-login
