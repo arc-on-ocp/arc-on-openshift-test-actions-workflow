@@ -31,4 +31,4 @@ jobs:
         uses: ./.github/actions/kaniko-build-push
         with:
           context: "." # the directory where the Dockerfile resides
-          tag: "ghcr.io/ghsioux-octodemo/test-repo/kaniko-build-ocp-action:test"
+          tag: "ghcr.io/arc-on-ocp/test-image/kaniko-build-ocp-action:test"
