@@ -1,0 +1,12 @@
+name: ARC Demo - Hello World - OCP test with Actions
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: arc-runner-set-ocp
+
+    steps:
+
+      - name: Hello world
+        run: echo "Hello from ARC runner!"
