@@ -4,7 +4,8 @@ on:
 
 jobs:
   build:
-    runs-on: arc-runner-set-ocp
+    #runs-on: arc-runner-set-ocp
+    runs-on: ubuntu-latest
 
     steps:
 
